@@ -1,1 +1,9 @@
-# Projet3W-01
+# PROJET3WA
+
+Devellper une application de mise ne ligne de cours pour un formateur Python et Data-anyste
+
+
+
+Nicolas Zanforlini
+Eric Jaslet
+Camile Ghastine
