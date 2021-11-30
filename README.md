@@ -5,5 +5,5 @@ Devellper une application de mise ne ligne de cours pour un formateur Python et 
 
 
 Nicolas Zanforlini
-Eric Jaslet
+Eric Jaslet ok
 Camile Ghastine
