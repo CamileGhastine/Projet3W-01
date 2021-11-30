@@ -34,11 +34,6 @@ class Category
      */
     private $categories;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="categories")
-     */
-    private $Categories;
-
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
