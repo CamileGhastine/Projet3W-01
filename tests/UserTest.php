@@ -1,25 +1,24 @@
 <?php
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
+use App\Entity\Lesson;
 
 class UserTest extends TestCase {
     
     private User $user;
+    private Lesson $lesson;
+    private $lessons;
       
     public function setUp() :void {
-
         $this->user = new User;
+        $this->lesson = new Lesson;
     }
 
     /**
      * @test instance of user
      */
     public function testInstanceUserClass() {
-
         $this->assertInstanceOf( User::class, $this->user );
     }
 
@@ -27,7 +26,6 @@ class UserTest extends TestCase {
      * @test method getUserIdentifier
      */
     public function testGetUserIdentifier() {
-
         $this->assertTrue( is_string( $this->user->getUserIdentifier() ));
     }
 
@@ -35,7 +33,6 @@ class UserTest extends TestCase {
      * @test method getUserName
      */
     public function testGetUserName() {
-
         $this->assertTrue( is_string( $this->user->getUserName() ));
     }
 
@@ -43,7 +40,6 @@ class UserTest extends TestCase {
      * @test method getRoles
      */
     public function testGetRoles() {
-
         $this->assertTrue( is_array( $this->user->getRoles() ));
         $this->assertEquals( !0, count($this->user->getRoles()) );
         $this->assertEquals( !0, strlen($this->user->getRoles()[0]) );
@@ -57,5 +53,16 @@ class UserTest extends TestCase {
         $this->user->setPassword("testpass");
         $this->assertTrue( is_string( $this->user->getPassword() ));
     }
+
+    /**
+     * @test method addLesson
+     */
+/*    
+    public function testAddLesson() {
+
+        $this->user->addLesson($this->lesson);
+        $this->assertEquals( !0, count($this->lessons) );
+    }
+*/
 
 }
