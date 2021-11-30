@@ -25,6 +25,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         }
 
         $dateTime = new DateTime('now');
-        $entity->setCreatedAt($dateTime)->setStatus(0);
+        $entity->setCreatedAt($dateTime);
     }
 }
