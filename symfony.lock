@@ -99,6 +99,7 @@
     },
     "fakerphp/faker": {
         "version": "v1.16.0"
+    },    
     "easycorp/easyadmin-bundle": {
         "version": "3.5",
         "recipe": {

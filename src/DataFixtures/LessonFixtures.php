@@ -43,11 +43,10 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($lesson);
         } 
 
-
         $manager->flush();
     }
 
-        /**
+    /**
      * @return string[]
      */
     public function getDependencies()
