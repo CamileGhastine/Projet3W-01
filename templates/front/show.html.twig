@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="card bg-secondary mb-3">
+		<div class="card-header row">
+			<div class="col-12 text-center"><h2>{{ lesson.category.title }}</h2></div>
+			<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
+			<div class="col-4 text-center">{{ lesson.user.email }}</div>
+			<div class="col-4 text-end">&#9733;&#9733;&#9733;</div>
+
+		</div>
+		<div class="card-body">
+			<h2 class="card-title text-center">{{ lesson.title }}</h2>
+			<p class="card-text">{{ lesson.content }}</p>
+		</div>
+	</div>
+{% endblock %}

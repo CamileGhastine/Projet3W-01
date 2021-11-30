@@ -15,7 +15,7 @@
 							...</p>
 					</div>
 					<div class="card-body text-end">
-						<a href="#" class="card-link">Lire le cours</a>
+						<a href="{{ path('show',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
 					</div>
 					<div class="card-body text-end">
 						{{ lesson.user.email }}
