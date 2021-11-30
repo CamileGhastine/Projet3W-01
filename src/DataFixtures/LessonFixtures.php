@@ -33,7 +33,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             $lesson->setTitle('lecon')
             ->setCreatedAt($faker->dateTime())
             ->setContent($faker->text())
-            ->setStatus(1)
+            ->setStatus(rand(0,3))
             ->setCategory($category)
             ->setUser($user);
             foreach($tags as $tag) {
