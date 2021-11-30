@@ -24,12 +24,14 @@ class UserFixtures extends Fixture
         ->setPassword($this->passwordHasher->hashPassword($user, 'admin'))
         ->setRoles([0]);
 
+        $this->addReference('admin', $user);
+
         $manager->persist($user);
 
         $user = new User;
         $user->setEmail('student@3wa.fr')
         ->setPassword($this->passwordHasher->hashPassword($user, 'student'))
-        ->setRoles([1]);
+        ->setRoles(["ADMIN"]);
 
         $manager->persist($user);
 

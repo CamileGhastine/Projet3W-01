@@ -16,6 +16,8 @@ class TagFixtures extends Fixture
             for($i=0; $i<10; $i++) {
                 $tag = new Tag;
                 $tag->setTitle($faker->word());
+
+                $this->addReference('tag' . $i, $tag);
                
                 $manager->persist($tag); 
             }
