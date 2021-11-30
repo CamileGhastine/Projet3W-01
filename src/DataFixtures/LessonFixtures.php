@@ -30,7 +30,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
            
             $lesson = new Lesson;
 
-            $lesson->setTitle('lecon')
+            $lesson->setTitle($faker->sentence())
             ->setCreatedAt($faker->dateTime())
             ->setContent($faker->text())
             ->setStatus(rand(0,3))

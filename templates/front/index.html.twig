@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontController!
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		{% for lesson in lessons %}
+			<div class="col-4">
+				<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
+				<div class="card mb-3">
+					<h3 class="card-header">{{ lesson.title }}</h3>
+					<div class="card-body">
+						<p class="card-text">{{ lesson.content | slice(1, 100) }}
+							...</p>
+					</div>
+					<div class="card-body text-end">
+						<a href="#" class="card-link">Lire le cours</a>
+					</div>
+					<div class="card-body text-end">
+						{{ lesson.user.email }}
+					</div>
+					<div class="card-footer text-muted">
+						<div class="row">
+							<div class="col-6">&#128274;</div>
+							<div class="col-6 text-end">&#9733;&#9733;&#9733;</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
