@@ -26,12 +26,19 @@
 			{% endapply %}
 		</div>
 	</div>
-	<div>
-		Notez ce cours :
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 1}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 2}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 3}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 4}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
+	<div class="row">
+		<div class="col-6">
+			Notez ce cours :
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 1}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 2}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 3}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 4}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
+		</div>
+		<div class="col-6 text-end">
+			<button class="btn btn-primary" type="button">
+				paratgez ce cours &#9758;
+			</button>
+		</div>
 	</div>
 {% endblock %}
