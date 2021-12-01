@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\tests\EntityTest;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Category;
@@ -27,8 +27,8 @@ class LessonTest extends TestCase {
      * @test method setPublishedAt, getPublishedAt
      */
     public function testSetAndGetPublishedAt() {
-        $this->lesson->setPublishedAt(new DateTime('2019-01-01 00:00:00'));
-        $this->assertEquals(new DateTime('2019-01-01 00:00:00'), $this->lesson->getPublishedAt());
+        $this->lesson->setPublishedAt(new \DateTime('2019-01-01 00:00:00'));
+        $this->assertEquals(new \DateTime('2019-01-01 00:00:00'), $this->lesson->getPublishedAt());
     }
 
     /**
@@ -67,8 +67,8 @@ class LessonTest extends TestCase {
      * @test method setCreatedAt, getCreatedAt
      */
     public function testSetAndGetCreatedAt() {
-        $this->lesson->setCreatedAt(new DateTime('2019-01-01 00:00:00'));
-        $this->assertEquals(new DateTime('2019-01-01 00:00:00'), $this->lesson->getCreatedAt());
+        $this->lesson->setCreatedAt(new \DateTime('2019-01-01 00:00:00'));
+        $this->assertEquals(new \DateTime('2019-01-01 00:00:00'), $this->lesson->getCreatedAt());
     }
     
     /**
