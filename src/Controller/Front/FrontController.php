@@ -27,8 +27,8 @@ class FrontController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(): Response
     {
-        return $this->render('front/index.html.twig', [
-            'lessons' => $this->lessonRepository->findall(),
+        return $this->render('front/home.html.twig', [
+            'lessons' => $this->lessonRepository->findBy([], ['createdAt' => 'DESC'] , 10),
         ]);
     }
 

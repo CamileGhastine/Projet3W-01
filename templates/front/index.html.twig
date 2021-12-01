@@ -4,11 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	{% for message in app.flashes('forbidden') %}
-		<div class="alert alert-danger text-center">
-			{{ message }}
-		</div>
-	{% endfor %}
 	<div class="row">
 		{% for lesson in lessons %}
 			<div class="col-4">
