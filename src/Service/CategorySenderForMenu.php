@@ -13,7 +13,7 @@ Class CategorySenderForMenu
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function send()
+    public function send() : array
     {
         return $this->categoryRepository->findAll();
     }
