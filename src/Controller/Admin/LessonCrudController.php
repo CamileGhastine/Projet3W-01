@@ -29,8 +29,6 @@ class LessonCrudController extends AbstractCrudController
             IntegerField::new('status'),
             DateTimeField::new('createdAt')->hideOnForm(),
             DateTimeField::new('publishedAt'),
-
-
         ];
     }
 
