@@ -25,6 +25,7 @@ class FrontController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(): Response
     {
+        dump($this->getUser());
         return $this->render('front/index.html.twig', [
             'lessons' => $this->lessonRepository->findall(),
         ]);
@@ -49,6 +50,12 @@ class FrontController extends AbstractController
     #[Route('/lesson/{id<[0-9]+>}', name: 'show_lesson')]
     public function show(Lesson $lesson)
     {
+        if(!$this->getUser() && $lesson->getStatus()===1) {
+            $this->addFlash('forbidden', 'Vous devez être connecté pour pouvoir lire ce cours');
+
+            return $this->redirectToRoute('home');
+        }
+
         return $this->render('front/show.html.twig', [
             'lesson' => $lesson,
         ]);
