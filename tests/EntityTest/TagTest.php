@@ -48,5 +48,13 @@ class TagTest extends TestCase {
         $this->assertEquals( 0, count($this->tag->getLessons()) );
     }
 
+    /**
+     * @test method setTitle, getTitle
+     */
+    public function testGetTitle() {
+        $this->tag->setTitle("title test");
+        $this->assertTrue(is_string($this->tag->getTitle()));
+    }
+
     
 }

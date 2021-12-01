@@ -19,65 +19,65 @@ class LessonTest extends TestCase {
     }
 
     /**
-     * @test method getPublishedAt
+     * @test method setPublishedAt, getPublishedAt
      */
-    public function testGetPublishedAt() {
+    public function testSetAndGetPublishedAt() {
         $this->lesson->setPublishedAt(new DateTime('2019-01-01 00:00:00'));
         $this->assertEquals(new DateTime('2019-01-01 00:00:00'), $this->lesson->getPublishedAt());
     }
 
     /**
-     * @test method getGetContent
+     * @test method setContent, getGetContent
      */
-    public function testGetContent() {
+    public function testSetAndGetContent() {
         $this->lesson->setContent("test content");
         $this->assertTrue(is_string($this->lesson->getContent()));
     }
 
     /**
-     * @test method getSummary
+     * @test method setSummary, getSummary
      */
-    public function testGetSummary() {
+    public function testSetAndGetSummary() {
         $this->lesson->setSummary("test summary");
         $this->assertTrue(is_string($this->lesson->getSummary()));
     }
 
     /**
-     * @test method getStatus
+     * @test method setStatus, getStatus
      */
-    public function testGetStatus() {
+    public function testSetAndGetStatus() {
         $this->lesson->setStatus(3);
         $this->assertTrue(is_int($this->lesson->getStatus()));
     }
     
     /**
-     * @test method getTitle
+     * @test method setTitle, getTitle
      */
-    public function testGetTitle() {
+    public function testSetAndGetTitle() {
         $this->lesson->setTitle("title test");
         $this->assertTrue(is_string($this->lesson->getTitle()));
     }
 
     /**
-     * @test method getCreatedAt
+     * @test method setCreatedAt, getCreatedAt
      */
-    public function testGetCreatedAt() {
+    public function testSetAndGetCreatedAt() {
         $this->lesson->setCreatedAt(new DateTime('2019-01-01 00:00:00'));
         $this->assertEquals(new DateTime('2019-01-01 00:00:00'), $this->lesson->getCreatedAt());
     }
     
     /**
-     * @test method getAverageNote
+     * @test method setAZverageNote, getAverageNote
      */
-    public function testGetAverageNote() {
+    public function testSetAndGetAverageNote() {
         $this->lesson->setAverageNote(10.2);
         $this->assertTrue(is_float($this->lesson->getAverageNote()));
     }
 
     /**
-     * @test method getNumberOfNote
+     * @test method setNumberOfNote, getNumberOfNote
      */
-    public function testGetNumberOfNote() {
+    public function testSetAndGetNumberOfNote() {
         $this->lesson->setNumberOfNote(10);
         $this->assertTrue(is_int($this->lesson->getNumberOfNote()));
     }

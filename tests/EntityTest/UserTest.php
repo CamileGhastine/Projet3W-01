@@ -46,9 +46,9 @@ class UserTest extends TestCase {
     }
 
     /**
-     * @test method getPassword
+     * @test method setPassword, getPassword
      */
-    public function testGetPassword() {
+    public function testSetAndGetPassword() {
         $this->user->setPassword("testpass");
         $this->assertTrue( is_string( $this->user->getPassword() ));
     }
@@ -70,6 +70,14 @@ class UserTest extends TestCase {
         $this->assertEquals( !0, count($this->user->getLessons()) );
         $this->user->removeLesson($this->lesson);
         $this->assertEquals( 0, count($this->user->getLessons()) );
+    }
+
+    /**
+     * @test method setEmail, getEmail
+     */
+    public function testSetAndGetEmail() {
+        $this->user->setEmail("testemail@test.fr");
+        $this->assertTrue( is_string( $this->user->getEmail() ));
     }
 
 
