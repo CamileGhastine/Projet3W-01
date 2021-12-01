@@ -1,7 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use App\Entity\Category;
 use App\Entity\Lesson;
+use App\Entity\User;
+use App\Entity\Tag;
 
 class LessonTest extends TestCase {
     
@@ -82,4 +85,42 @@ class LessonTest extends TestCase {
         $this->assertTrue(is_int($this->lesson->getNumberOfNote()));
     }
 
+    /**
+     * @test method setUser, getUser
+     */
+    public function testSetAndGetUser() {
+        $this->lesson->setUser(new User);
+        $this->assertInstanceOf(User::class, $this->lesson->getUser());
+    }
+
+    /**
+     * @test method setCategory, getCategory
+     */
+    public function testSetAndGetCategory() {
+        $this->lesson->setCategory(new Category);
+        $this->assertInstanceOf( Category::class, $this->lesson->getCategory() );
+    }
+
+    /**
+     * @test method getTags
+     */
+    public function testGetTags() {
+        $this->assertEquals( 0, count($this->lesson->getTags()) );
+        $this->lesson->addTag(new Tag);
+        $this->assertInstanceOf(Tag::class, $this->lesson->getTags()[0]);
+        $this->assertEquals( !0, count($this->lesson->getTags()) );
+    }
+
+    /**
+     * @test method removeTag
+     */
+    public function testRemoveTag() {
+        $tag = new Tag;
+        $this->lesson->addTag($tag);
+        $this->assertEquals( !0, count($this->lesson->getTags()) );
+        $this->lesson->removeTag($tag);
+        $this->assertEquals( 0, count($this->lesson->getTags()) );
+    }
+
 }
+
