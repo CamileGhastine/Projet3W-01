@@ -22,7 +22,7 @@
 		<div class="card-body">
 			<h2 class="card-title text-center">{{ lesson.title }}</h2>
 			{% apply markdown_to_html %}
-			{{ lesson.content }}
+				{{ lesson.content }}
 			{% endapply %}
 		</div>
 	</div>
@@ -36,7 +36,7 @@
 			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
 		</div>
 		<div class="col-6 text-end">
-			<button  class="btn btn-primary" type="button">
+			<button class="btn btn-primary" type="button">
 				paratgez ce cours &#9758;
 			</button>
 		</div>
