@@ -12,7 +12,11 @@
 				</div>
 				<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
 				<div class="col-4 text-center">{{ lesson.user.email }}</div>
-				<div class="col-4 text-end">&#9733;&#9733;&#9733;</div>
+				<div class="col-4 text-end">
+					{% for i in 1 .. (lesson.averageNote | round) %}
+						&#9733
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 		<div class="card-body">

@@ -26,13 +26,21 @@
 						{{ lesson.user.email }}
 					</div>
 					<div class="card-footer text-muted">
-						<div class="row">
-							{% if lesson.status == 1 %}
-								{% if app.user is null %}
-									<div class="col-6">&#128274;</div>
+						<div class="row" style="height: 25px">
+							<div class="col-6">
+								{% if lesson.status == 1 %}
+									{% if app.user is null %}
+										&#128274;
+									{% endif %}
 								{% endif %}
-							{% endif %}
-							<div class="col-6 text-end">&#9733;&#9733;&#9733;</div>
+							</div>
+							<div class="col-6 text-end">
+								{% if lesson.averageNote %}
+									{% for i in 1 .. (lesson.averageNote | round) %}
+										&#9733;
+									{% endfor %}
+								{% endif %}
+							</div>
 						</div>
 					</div>
 				</div>
