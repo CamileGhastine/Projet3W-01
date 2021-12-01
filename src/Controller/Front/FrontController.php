@@ -9,6 +9,7 @@ use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends AbstractController
 {
@@ -50,6 +51,14 @@ class FrontController extends AbstractController
     {
         return $this->render('front/show.html.twig', [
             'lesson' => $lesson,
+        ]);
+    }
+
+    #[Route('/lesson/search', name: 'search_lessons')]
+    public function search(LessonRepository $lessonRepository, Request $request)
+    {
+        return $this->render('front/index.html.twig', [
+            'lessons' => $lessonRepository->search($request->get('keyWord')),
         ]);
     }
 }
