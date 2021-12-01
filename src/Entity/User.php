@@ -24,6 +24,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Regex("/[a-zA-Z\.\-0-9]+@[a-zA-z0-9]+\.[a-zA-Z]{2,3}/")
      */
     private $email;
 
