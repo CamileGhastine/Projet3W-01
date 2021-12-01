@@ -5,15 +5,29 @@
 
 {% block body %}
 	<div class="card bg-secondary mb-3">
-		<div class="card-header row">
-			<div class="col-12 text-center"><h2>{{ lesson.category.title }}</h2></div>
-			<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
-			<div class="col-4 text-center">{{ lesson.user.email }}</div>
-			<div class="col-4 text-end">&#9733;&#9733;&#9733;</div>
+		<div class="card-header">
+			<div class="row">
+				<div class="col-12 text-center">
+					<h2>{{ lesson.category.title }}</h2>
+				</div>
+				<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
+				<div class="col-4 text-center">{{ lesson.user.email }}</div>
+				<div class="col-4 text-end">&#9733;&#9733;&#9733;</div>
+			</div>
 		</div>
 		<div class="card-body">
 			<h2 class="card-title text-center">{{ lesson.title }}</h2>
 			<p class="card-text">{{ lesson.content }}</p>
 		</div>
 	</div>
+	<div>
+		Notez ce cours :
+		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 1}) }}" class="">&#x2605</a>
+		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 2}) }}" class="">&#x2605</a>
+		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 3}) }}" class="">&#x2605</a>
+		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 4}) }}" class="">&#x2605</a>
+		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
+	</div>
+
+
 {% endblock %}

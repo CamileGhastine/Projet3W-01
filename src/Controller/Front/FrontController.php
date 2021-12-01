@@ -6,10 +6,12 @@ use App\Entity\Lesson;
 use App\Entity\Category;
 use App\Repository\LessonRepository;
 use App\Repository\CategoryRepository;
+use App\Service\CalculateAverageNotation;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends AbstractController
 {
@@ -66,5 +68,15 @@ class FrontController extends AbstractController
         return $this->render('front/index.html.twig', [
             'lessons' => $lessonRepository->search($request->get('keyWord')),
         ]);
+    }
+
+    #[Route('/lesson/notation/{id<[0-9]+>}/{note<[1-5]>}', name: 'note_lesson')]
+    public function note(int $id, Lesson $lesson, int $note, CalculateAverageNotation $calculateAverageNotation)
+    {
+        $calculateAverageNotation->calcul($lesson, $note);
+
+        return $this->redirectToRoute('show_lesson', [
+            'id' => $id
+        ]);  
     }
 }
