@@ -6,4 +6,12 @@
 
 
     <h1>Hello {{app.user.firstname}} {{app.user.lastname}}</h1>
+    <h2>Mes informations</h2>
+    <ul>
+        <li>prénom : {{ app.user.firstname}}</li>
+        <li>prénom : {{ app.user.lastname}}</li>
+        <li>email : {{ app.user.email}}</li>
+    </ul>
+    <a href="#" class="btn btn-primary mt-2">Changer mes informations</a>
+    <a href="#" class="btn btn-success mt-2">Changer mon mot de passe</a>
 {% endblock %}
