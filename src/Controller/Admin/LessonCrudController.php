@@ -35,7 +35,7 @@ class LessonCrudController extends AbstractCrudController
     public function createEntity(string $entityFqcn)
     {
         $lesson = new Lesson();
-        $lesson->setStatus(1);
+        $lesson->setStatus(0);
 
         return $lesson;
     }
