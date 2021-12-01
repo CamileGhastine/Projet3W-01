@@ -9,9 +9,11 @@ use App\Entity\Tag;
 class LessonTest extends TestCase {
     
     private Lesson $lesson;
+    private Tag $tag;
       
     public function setUp() :void {
         $this->lesson = new Lesson;
+        $this->tag = new Tag;
     }
 
     /**
@@ -106,7 +108,7 @@ class LessonTest extends TestCase {
      */
     public function testGetTags() {
         $this->assertEquals( 0, count($this->lesson->getTags()) );
-        $this->lesson->addTag(new Tag);
+        $this->lesson->addTag($this->tag);
         $this->assertInstanceOf(Tag::class, $this->lesson->getTags()[0]);
         $this->assertEquals( !0, count($this->lesson->getTags()) );
     }
@@ -115,10 +117,9 @@ class LessonTest extends TestCase {
      * @test method removeTag
      */
     public function testRemoveTag() {
-        $tag = new Tag;
-        $this->lesson->addTag($tag);
+        $this->lesson->addTag($this->tag);
         $this->assertEquals( !0, count($this->lesson->getTags()) );
-        $this->lesson->removeTag($tag);
+        $this->lesson->removeTag($this->tag);
         $this->assertEquals( 0, count($this->lesson->getTags()) );
     }
 
