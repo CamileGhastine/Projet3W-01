@@ -26,7 +26,6 @@ class FrontController extends AbstractController
     {
         return $this->render('front/index.html.twig', [
             'lessons' => $this->lessonRepository->findall(),
-            'categories' => $this->categoryRepository->findAll()
         ]);
     }
 
@@ -35,7 +34,6 @@ class FrontController extends AbstractController
     {
         return $this->render('front/index.html.twig', [
             'lessons' => $this->lessonRepository->findall(),
-            'categories' => $this->categoryRepository->findAll()
         ]);
     }
 
@@ -44,7 +42,6 @@ class FrontController extends AbstractController
     {
         return $this->render('front/index.html.twig', [
             'lessons' => $this->lessonRepository->findBy(['category' => $category]),
-            'categories' => $this->categoryRepository->findAll()
         ]);
     }
 
@@ -53,7 +50,6 @@ class FrontController extends AbstractController
     {
         return $this->render('front/show.html.twig', [
             'lesson' => $lesson,
-            'categories' => $this->categoryRepository->findAll()
         ]);
     }
 }
