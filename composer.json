@@ -15,6 +15,7 @@
         "doctrine/orm": "^2.10",
         "easycorp/easyadmin-bundle": "^3.5",
         "fakerphp/faker": "^1.16",
+        "league/commonmark": "^2.0",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/console": "5.3.*",
         "symfony/dotenv": "5.3.*",
@@ -29,6 +30,7 @@
         "symfony/validator": "5.3.*",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/markdown-extra": "^3.3",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
