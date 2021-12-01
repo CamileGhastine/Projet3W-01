@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontController!
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('forbidden') %}
+		<div class="alert alert-danger text-center">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	<div class="accordion mb-5" id="accordionExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingTwo">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					<strong>Qui suis-je ?</strong>
+				</button>
+			</h2>
+			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>Lorem ipsum dolor sit amet consectetur adipisicing.</strong>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet excepturi, asperiores sunt maiores aut eos voluptatem quae voluptatum consequuntur, nostrum repellat. Dolorum tempora quos sit nobis alias cumque ea voluptas est beatae, nisi iusto, dolorem voluptatibus voluptatum nemo. Dolor quaerat sed commodi magnam, est eum dolores quisquam deleniti, similique impedit eius, molestiae sint sequi aliquid nihil ut blanditiis quis. Rem, autem. Placeat, aut? Laudantium eius ab perspiciatis facere voluptatem, molestias vitae deserunt vel obcaecati eaque tempora est maiores officiis magni similique harum molestiae fuga suscipit optio? Repellendus commodi voluptate facere nostrum rem, qui nam a exercitationem optio corporis quidem dignissimos.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1 class="text-center mb-3">Les derniers cours</h1>
+
+	<div class="row">
+		{% for lesson in lessons %}
+			<div class="col-4">
+				<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
+				<div class="card mb-3">
+					<h3 class="card-header">{{ lesson.title }}</h3>
+					<div class="card-body">
+						<p class="card-text">{{ lesson.content | slice(1, 100) }}
+							...</p>
+					</div>
+					<div class="card-body text-end">
+						<a href="{{ path('show_lesson',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
+					</div>
+					<div class="card-body text-end">
+						{{ lesson.user.email }}
+					</div>
+					<div class="card-footer text-muted">
+						<div class="row" style="height: 25px">
+							<div class="col-6">
+								{% if lesson.status == 1 %}
+									{% if app.user is null %}
+										&#128274;
+									{% endif %}
+								{% endif %}
+							</div>
+							<div class="col-6 text-end">
+								{% if lesson.averageNote %}
+									{% for i in 1 .. (lesson.averageNote | round) %}
+										&#9733;
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
