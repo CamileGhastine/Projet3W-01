@@ -29,10 +29,7 @@ class Category
      */
     private $lessons;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Categories")
-     */
-    private $categories;
+    
 
     public function __construct()
     {
@@ -87,37 +84,4 @@ class Category
         return $this;
     }
 
-    public function getCategories(): ?self
-    {
-        return $this->categories;
-    }
-
-    public function setCategories(?self $categories): self
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    public function addCategory(self $category): self
-    {
-        if (!$this->Categories->contains($category)) {
-            $this->Categories[] = $category;
-            $category->setCategories($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(self $category): self
-    {
-        if ($this->Categories->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getCategories() === $this) {
-                $category->setCategories(null);
-            }
-        }
-
-        return $this;
-    }
 }

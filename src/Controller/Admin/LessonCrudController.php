@@ -23,12 +23,12 @@ class LessonCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('title'),
-            TextareaField::new('content')->hideOnIndex(),
-            AssociationField::new('user'),
-            IntegerField::new('status'),
-            DateTimeField::new('createdAt')->hideOnForm(),
-            DateTimeField::new('publishedAt'),
+            TextField::new('title', 'Titre'),
+            TextareaField::new('content', 'Contenu')->hideOnIndex(),
+            AssociationField::new('user', 'Auteur')->hideWhenCreating(),
+            IntegerField::new('status')->setFormTypeOptions([]),
+            DateTimeField::new('createdAt', 'Créé le')->hideOnForm(),
+            DateTimeField::new('publishedAt', 'Publié le'),
         ];
     }
 
@@ -39,5 +39,4 @@ class LessonCrudController extends AbstractCrudController
 
         return $lesson;
     }
-    
 }
