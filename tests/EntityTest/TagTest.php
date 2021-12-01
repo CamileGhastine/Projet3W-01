@@ -29,6 +29,24 @@ class TagTest extends TestCase {
     public function testgetLessons() {
         $this->assertInstanceOf( Collection::class, $this->tag->getLessons() );
     }
+    /**
+     * @test method addLesson
+     */    
+    public function testAddLesson() {
+        $this->assertEquals( 0, count($this->tag->getLessons()) );
+        $this->tag->addLesson($this->lesson);
+        $this->assertEquals( !0, count($this->tag->getLessons()) );
+    }
+
+    /**
+     * @test method removeLesson
+     */    
+    public function testRemoveLesson() {
+        $this->tag->addLesson($this->lesson);
+        $this->assertEquals( !0, count($this->tag->getLessons()) );
+        $this->tag->removeLesson($this->lesson);
+        $this->assertEquals( 0, count($this->tag->getLessons()) );
+    }
 
     
 }
