@@ -8,7 +8,6 @@ class UserTest extends TestCase {
     
     private User $user;
     private Lesson $lesson;
-    private $lessons;
       
     public function setUp() :void {
         $this->user = new User;
@@ -56,13 +55,22 @@ class UserTest extends TestCase {
 
     /**
      * @test method addLesson
-     */
-/*    
+     */    
     public function testAddLesson() {
-
+        $this->assertEquals( 0, count($this->user->getLessons()) );
         $this->user->addLesson($this->lesson);
-        $this->assertEquals( !0, count($this->lessons) );
+        $this->assertEquals( !0, count($this->user->getLessons()) );
     }
-*/
+
+    /**
+     * @test method removeLesson
+     */    
+    public function testRemoveLesson() {
+        $this->user->addLesson($this->lesson);
+        $this->assertEquals( !0, count($this->user->getLessons()) );
+        $this->user->removeLesson($this->lesson);
+        $this->assertEquals( 0, count($this->user->getLessons()) );
+    }
+
 
 }
