@@ -32,7 +32,7 @@ class LessonTest extends TestCase {
     }
 
     /**
-     * @test method setContent, getGetContent
+     * @test method setContent, getContent
      */
     public function testSetAndGetContent() {
         $this->lesson->setContent("test content");
