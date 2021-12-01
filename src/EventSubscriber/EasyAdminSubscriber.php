@@ -10,7 +10,6 @@ use Symfony\Component\Security\Core\Security;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
-
     public function __construct(private Security $security)
     {}
 
