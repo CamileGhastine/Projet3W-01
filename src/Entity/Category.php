@@ -29,8 +29,6 @@ class Category
      */
     private $lessons;
 
-    
-
     public function __construct()
     {
         $this->lessons = new ArrayCollection();

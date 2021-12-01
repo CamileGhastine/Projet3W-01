@@ -9,6 +9,7 @@ use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends AbstractController
 {
@@ -48,8 +49,22 @@ class FrontController extends AbstractController
     #[Route('/lesson/{id<[0-9]+>}', name: 'show_lesson')]
     public function show(Lesson $lesson)
     {
+        if(!$this->getUser() && $lesson->getStatus()===1) {
+            $this->addFlash('forbidden', 'Vous devez être connecté pour pouvoir lire ce cours');
+
+            return $this->redirectToRoute('home');
+        }
+
         return $this->render('front/show.html.twig', [
             'lesson' => $lesson,
+        ]);
+    }
+
+    #[Route('/lesson/search', name: 'search_lessons')]
+    public function search(LessonRepository $lessonRepository, Request $request)
+    {
+        return $this->render('front/index.html.twig', [
+            'lessons' => $lessonRepository->search($request->get('keyWord')),
         ]);
     }
 }

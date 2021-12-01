@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	{% for message in app.flashes('forbidden') %}
+		<div class="alert alert-danger text-center">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<div class="row">
 		{% for lesson in lessons %}
 			<div class="col-4">
@@ -22,7 +27,11 @@
 					</div>
 					<div class="card-footer text-muted">
 						<div class="row">
-							<div class="col-6">&#128274;</div>
+							{% if lesson.status == 1 %}
+								{% if app.user is null %}
+									<div class="col-6">&#128274;</div>
+								{% endif %}
+							{% endif %}
 							<div class="col-6 text-end">&#9733;&#9733;&#9733;</div>
 						</div>
 					</div>

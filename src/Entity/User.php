@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -23,6 +24,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *     message = "Votre email '{{ value }}' n'est pas valide. "
+     * )
      */
     private $email;
 
@@ -44,11 +48,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=60, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 60,
+     *      minMessage = "votre prénom doit comporter minimum {{ min }} charactères",
+     *      maxMessage = "votre prénom doit comporter maximum {{ max }} charactères"
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=60, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 60,
+     *      minMessage = "votre nom doit comporter minimum {{ min }} charactères",
+     *      maxMessage = "votre nom doit comporter maximum {{ max }} charactères"
+     * )
      */
     private $lastname;
 
