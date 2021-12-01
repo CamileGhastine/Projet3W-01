@@ -4,10 +4,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class SecurityControllerTest extends WebTestCase {
 
-    //private $client;
+    private $client1;
 
     public function setUp() :void {
-        //$this->client = static::createClient();
+        $this->client = static::createClient();
     }
 
     /**
@@ -19,11 +19,6 @@ class SecurityControllerTest extends WebTestCase {
 
         $client->request('GET', '/login');
         $this->assertResponseIsSuccessful();
-        
-        //$crawler = $this->client->request('GET', '/login');
-        //$this->assertResponseStatusCodeSame(200);
-        //$this->assertSame(1, $crawler->filter('h1')->count());
-        //$this->assertSame(1, $crawler->filter('form')->count());
 
         /*
         $form = $crawler->selectButton('Connexion')->form([
