@@ -25,7 +25,6 @@ class FrontController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(): Response
     {
-        dump($this->getUser());
         return $this->render('front/index.html.twig', [
             'lessons' => $this->lessonRepository->findall(),
         ]);
