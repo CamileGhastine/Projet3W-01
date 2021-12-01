@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 
 class LessonCrudController extends AbstractCrudController
 {
@@ -26,6 +27,7 @@ class LessonCrudController extends AbstractCrudController
             TextareaField::new('content', 'Contenu')->hideOnIndex(),
             AssociationField::new('user', 'Auteur')->hideWhenCreating(),
             AssociationField::new('category', 'categories')->hideOnIndex(),
+            AssociationField::new('tags', 'tags')->hideOnIndex(),
             IntegerField::new('status'),
             DateTimeField::new('createdAt', 'Créé le')->hideOnForm(),
             DateTimeField::new('publishedAt', 'Publié le'),
