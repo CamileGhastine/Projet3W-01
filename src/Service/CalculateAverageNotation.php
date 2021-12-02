@@ -10,12 +10,10 @@ use Doctrine\ORM\EntityManagerInterface;
 Class CalculateAverageNotation
 {
     private EntityManagerInterface $manager;
-    private LessonRepository $lessonRepository;
 
-    public function __construct(EntityManagerInterface $manager, LessonRepository $lessonRepository)
+    public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
-        $this->LessonRepository = $lessonRepository;
     }
 
     public function calcul(Lesson $lesson, int $note)

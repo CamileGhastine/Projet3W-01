@@ -1,37 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FrontController!
+{% block title %}
+	{{ lesson.title}}
 {% endblock %}
 
 {% block body %}
 	<div class="card bg-secondary mb-3">
 		<div class="card-header">
-			<div class="row">
-				<div class="col-12 text-center">
-					<h2>{{ lesson.category.title }}</h2>
+			<div class="row mb-2">
+				<div class="col-6">
+					<span class="badge bg-primary">{{ lesson.category.title }}</span>
 				</div>
-				<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
-				<div class="col-4 text-center">{{ lesson.user.email }}</div>
-				<div class="col-4 text-end">
-					{% for i in 1 .. (lesson.averageNote | round) %}
-						&#9733
+				<div class="col-6 text-end">
+					{% for tag in lesson.tags %}
+						<span class="badge rounded-pill bg-light">{{ tag.title }}</span>
 					{% endfor %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
+				<div class="col-4 text-center"><strong> {{ lesson.user.firstname }} {{ lesson.user.lastname }}</strong></div>
+				<div class="col-4 text-end">
+					{% if lesson.averageNote %}
+						{% for i in 1 .. (lesson.averageNote | round) %}
+							&#9733;
+						{% endfor %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<div class="card-body">
 			<h2 class="card-title text-center">{{ lesson.title }}</h2>
 			{% apply markdown_to_html %}
-				{{ lesson.content }}
+			{{ lesson.content }}
 			{% endapply %}
 		</div>
 	</div>
-	<div>
-		Notez ce cours :
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 1}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 2}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 3}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 4}) }}" class="">&#x2605</a>
-		<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
+	<div class="row">
+		<div class="col-6">
+			Notez ce cours :
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 1}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 2}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 3}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 4}) }}" class="">&#x2605</a>
+			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
+		</div>
+		<div class="col-6 text-end">
+			<button class="btn btn-primary" type="button">
+				paratgez ce cours &#9758;
+			</button>
+		</div>
 	</div>
 {% endblock %}
