@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\tests\ServiceTest;
+
 use App\Service\CalculateAverageNotation;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
