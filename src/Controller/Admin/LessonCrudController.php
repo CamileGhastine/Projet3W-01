@@ -24,6 +24,7 @@ class LessonCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Titre'),
             TextareaField::new('content', 'Contenu')->hideOnIndex(),
+            TextareaField::new('summary', 'Extrait')->hideOnIndex(),
             AssociationField::new('user', 'Auteur')->hideWhenCreating(),
             AssociationField::new('category', 'categories')->hideOnIndex(),
             AssociationField::new('tags', 'tags')->hideOnIndex(),
