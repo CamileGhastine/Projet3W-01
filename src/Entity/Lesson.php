@@ -75,9 +75,15 @@ class Lesson
      */
     private $tags;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Exercise::class, mappedBy="Lesson")
+     */
+    private $exercises;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->exercises = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -225,6 +231,36 @@ class Lesson
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Exercise[]
+     */
+    public function getExercises(): Collection
+    {
+        return $this->exercises;
+    }
+
+    public function addExercise(Exercise $exercise): self
+    {
+        if (!$this->exercises->contains($exercise)) {
+            $this->exercises[] = $exercise;
+            $exercise->setLesson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExercise(Exercise $exercise): self
+    {
+        if ($this->exercises->removeElement($exercise)) {
+            // set the owning side to null (unless already changed)
+            if ($exercise->getLesson() === $this) {
+                $exercise->setLesson(null);
+            }
+        }
 
         return $this;
     }
