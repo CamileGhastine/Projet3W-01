@@ -1,6 +1,5 @@
 <?php 
 
-
 namespace App\tests\EntityTest;
 
 use PHPUnit\Framework\TestCase;

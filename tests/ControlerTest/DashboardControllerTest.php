@@ -1,5 +1,6 @@
-<?php namespace App\tests\ControllerTest;
+<?php 
 
+namespace App\tests\ControllerTest;
 
 use PHPUnit\Framework\TestCase;
 use App\Controller\Admin\DashboardController;

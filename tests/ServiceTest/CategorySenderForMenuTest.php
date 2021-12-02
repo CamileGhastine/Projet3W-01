@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\tests\ServiceTest;
 
 use App\Service\CategorySenderForMenu;
