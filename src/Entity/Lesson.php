@@ -41,6 +41,7 @@ class Lesson
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $summary;
 
