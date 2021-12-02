@@ -1,13 +1,14 @@
 <?php namespace App\tests\SecurityTest;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Repository\UserRepository;
 
 class SecurityControllerTest extends WebTestCase {
 
-    private $client1;
+    //private $client1;
 
     public function setUp() :void {
-        $this->client = static::createClient();
+        //$this->client1 = static::createClient();
     }
 
     /**
@@ -16,10 +17,16 @@ class SecurityControllerTest extends WebTestCase {
     public function testLoginSuccess() {
 
         $client = static::createClient();
+        $userRepository = static::$container->get(UserRepository::class);
+        //$testUser = $userRepository->findOneByEmail('admin@3wa.fr');
+        //$client->loginUser($testUser);
 
-        //$client->request('GET', '/login');
+        
+
+        
+//$client->request('GET', '/login');
         //$this->assertResponseIsSuccessful();
-
+/*
         $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton('Connexion')->form([
             'email' => 'admin@3wa.fr',
@@ -28,7 +35,7 @@ class SecurityControllerTest extends WebTestCase {
 
         $this->client->submit($form);
         $this->assertResponseRedirects('/');
-        
+        */
     }
 
 
