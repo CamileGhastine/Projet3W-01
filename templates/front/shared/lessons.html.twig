@@ -1,0 +1,37 @@
+<div class="row">
+		{% for lesson in lessons %}
+			<div class="col-4">
+				<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
+				<div class="card mb-3">
+					<h3 class="card-header">{{ lesson.title }}</h3>
+					<div class="card-body">
+						<p class="card-text">{{ lesson.summary }}</p>
+					</div>
+					<div class="card-body text-end">
+						<a href="{{ path('show_lesson',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
+					</div>
+					<div class="card-body text-end">
+						{{ lesson.user.email }}
+					</div>
+					<div class="card-footer text-muted">
+						<div class="row" style="height: 25px">
+							<div class="col-6">
+								{% if lesson.status == 1 %}
+									{% if app.user is null %}
+										&#128274;
+									{% endif %}
+								{% endif %}
+							</div>
+							<div class="col-6 text-end">
+								{% if lesson.averageNote %}
+									{% for i in 1 .. (lesson.averageNote | round) %}
+										&#9733;
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
