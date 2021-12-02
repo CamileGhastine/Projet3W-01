@@ -1,28 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="/">Accueil</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarColor02">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home
-						<span class="visually-hidden">(current)</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				</li>
+			<ul class="navbar-nav me-auto"> 
+				{% if app.user %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Compte</a>
+						<div class="dropdown-menu">
+							{% if is_granted('ROLE_ADMIN') %}
+								<a class="dropdown-item" href="{{ path('admin')}}">Admin</a>
+							{% endif %}
+							<a class="dropdown-item" href="{{ path('student_account')}}">Mon compte</a>
+							<a class="dropdown-item" href="/logout">Déconnection</a>
+						</div>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Connection</a>
+					</li>
+				{% endif %}
 				<li class="nav-item">
 					<a class="nav-link" href="#">About</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
 					<div class="dropdown-menu">
 						{% for category in categories %}
 							<a class="dropdown-item" href="{{ path('lessons_by_category', {'id': category.id}) }}">{{ category.title }}</a>

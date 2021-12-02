@@ -11,7 +11,6 @@ Class CalculateAverageNotation
 {
     private EntityManagerInterface $manager;
 
-
     public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;

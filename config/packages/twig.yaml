@@ -2,6 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
         categoriesForMenu: '@App\Service\CategorySenderForMenu'
+    form_themes: ['bootstrap_5_layout.html.twig']
 
 when@test:
     twig:
