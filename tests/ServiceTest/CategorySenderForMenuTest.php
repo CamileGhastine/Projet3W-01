@@ -21,10 +21,4 @@ class CategorySenderForMenuTest extends TestCase {
         $this->assertInstanceOf( CategorySenderForMenu::class, $this->categorySenderMenu );
     }
 
-    /**
-     * @test method send
-     */
-    //public function testSend() {
-        //$this->assertTrue(is_array($this->categoryRep->send()));
-    //}
 }
