@@ -1,4 +1,6 @@
-<?php namespace App\tests\EntityTest;
+<?php 
+
+namespace App\tests\EntityTest;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
