@@ -40,7 +40,7 @@ class Lesson
     private $content;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $summary;
 
