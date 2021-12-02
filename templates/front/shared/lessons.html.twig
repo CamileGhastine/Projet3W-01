@@ -1,7 +1,6 @@
 <div class="row">
 	{% for lesson in lessons %}
 		<div class="col-4">
-			<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
 			<div class="card mb-3">
 				<h3 class="card-header">{{ lesson.title }}</h3>
 				<div class="card-body">
@@ -10,9 +9,14 @@
 				<div class="card-body text-end">
 					<a href="{{ path('show_lesson',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
 				</div>
-				<div class="card-body text-end">
-					<strong>{{ lesson.user.firstname }}
-						{{ lesson.user.lastname }}</strong>
+				<div class="card-body row">
+					<div class="col-6">
+						<div class="text-start">{{ lesson.createdAt | date('d/m/Y') }}</div>
+					</div>
+					<div class="col-6 text-end">
+						<strong>{{ lesson.user.firstname }}
+							{{ lesson.user.lastname }}</strong>
+					</div>
 				</div>
 				<div class="card-footer text-muted">
 					<div class="row" style="height: 25px">
