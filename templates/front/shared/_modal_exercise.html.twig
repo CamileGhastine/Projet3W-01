@@ -1,23 +1,23 @@
 <!-- Modal -->
-<div class="text-center mb-5">
-    <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exercice{{exo.id}}">
-        Exercice {{loop.index}}
-    </button>
-</div>
-<div class="modal fade" id="exercice{{exo.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Exercice</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {{exo.content}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermé</button>
-                <button type="button" class="btn btn-primary">Corrigé</button>
-            </div>
-        </div>
-    </div>
+<button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exercice{{exercise.id}}">
+	Exercice
+	{{loop.index}}
+</button>
+
+<div class="modal fade text-start" id="exercice{{exercise.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">{{ exercise.title }}</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				{{exercise.content}}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermé</button>
+				<button type="button" class="btn btn-primary">Corrigé</button>
+			</div>
+		</div>
+	</div>
 </div>

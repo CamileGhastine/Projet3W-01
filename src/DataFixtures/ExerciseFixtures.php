@@ -2,9 +2,10 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 use App\Entity\Exercise;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class ExerciseFixtures extends Fixture
 {
@@ -13,11 +14,11 @@ class ExerciseFixtures extends Fixture
         $faker = Factory::create('fr_FR');
         
             for($i=0; $i<10; $i++) {
-                $exercice = new Exercise;
-                $exercice->setTitle($faker->word(rand(1, 5)))
+                $exercise = new Exercise;
+                $exercise->setTitle($faker->word(rand(1, 5)))
                 ->setContent($faker->text(1000));
 
-                $this->addReference('exercice' . $i, $exercice);
+                $this->addReference('exercise' . $i, $exercise);
                
                 $manager->persist($exercise); 
             }

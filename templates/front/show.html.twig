@@ -39,9 +39,11 @@
 			{{ lesson.content }}
 			{% endapply %}
 		</div>
-		{% for exo in lesson.exercises %}
-			{% include "front/shared/_modal_exercise.html.twig" %}
-		{% endfor %}
+		<div class="text-center mb-5">
+			{% for exercise in lesson.exercises %}
+				{% include "front/shared/_modal_exercise.html.twig" %}
+			{% endfor %}
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-6">

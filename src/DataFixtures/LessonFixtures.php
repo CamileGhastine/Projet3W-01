@@ -7,6 +7,7 @@ use Faker\Factory;
 use App\Entity\User;
 use App\Entity\Lesson;
 use App\Entity\Category;
+use App\Entity\Exercise;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -31,7 +32,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             $m = rand(0,3);
             $exercises = [];
             for($l=0; $l<=$m; $l++) {
-                $exercise[] = $this->getReference('exercice'. rand(0, 9), Exercise::class);
+                $exercises[] = $this->getReference('exercise'. rand(0, 9), Exercise::class);
             }
            
             $lesson = new Lesson;
@@ -47,7 +48,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
                 $lesson->addTag($tag);
             }
             foreach($exercises as $exercise) {
-                $lesson->addExercice($exercise);
+                $lesson->addExercise($exercise);
             }
 
 
@@ -66,6 +67,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             CategoryFixtures::class,
             UserFixtures::class,
             TagFixtures::class,
+            ExerciseFixtures::class,
         ];
     }
 }
