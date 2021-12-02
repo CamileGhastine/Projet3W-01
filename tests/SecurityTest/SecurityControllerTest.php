@@ -5,10 +5,7 @@ use App\Repository\UserRepository;
 
 class SecurityControllerTest extends WebTestCase {
 
-    //private $client1;
-
     public function setUp() :void {
-        //$this->client1 = static::createClient();
     }
 
     /**
