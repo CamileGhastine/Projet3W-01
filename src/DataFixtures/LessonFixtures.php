@@ -27,6 +27,12 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             for($k=0; $k<=$n; $k++) {
                 $tags[] = $this->getReference('tag'. rand(0, 9), Tag::class);
             }
+
+            $m = rand(0,3);
+            $exercises = [];
+            for($l=0; $l<=$m; $l++) {
+                $exercise[] = $this->getReference('exercice'. rand(0, 9), Exercise::class);
+            }
            
             $lesson = new Lesson;
 
@@ -40,6 +46,10 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             foreach($tags as $tag) {
                 $lesson->addTag($tag);
             }
+            foreach($exercises as $exercise) {
+                $lesson->addExercice($exercise);
+            }
+
 
             $manager->persist($lesson);
         } 
