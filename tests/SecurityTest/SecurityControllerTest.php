@@ -5,8 +5,6 @@ use App\Repository\UserRepository;
 
 class SecurityControllerTest extends WebTestCase {
 
-    public function setUp() :void {
-    }
 
     /**
      * @test login success
@@ -17,8 +15,6 @@ class SecurityControllerTest extends WebTestCase {
         $userRepository = static::$container->get(UserRepository::class);
         //$testUser = $userRepository->findOneByEmail('admin@3wa.fr');
         //$client->loginUser($testUser);
-
-        
 
         
 //$client->request('GET', '/login');
@@ -35,40 +31,4 @@ class SecurityControllerTest extends WebTestCase {
         */
     }
 
-
-
 }
-/*
-    public function testLoginFormSuccess()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/login');
-
-        $form = $crawler->selectButton('Connexion')->form([
-            'username' => 'camile',
-            'password' => 'camile',
-        ]);
-
-        $client->submit($form);
-
-        $this->assertResponseRedirects('/');
-    }
-
-    public function testLoginFormFailure()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/login');
-
-        $form = $crawler->selectButton('Connexion')->form([
-            'username' => 'camile',
-            'password' => 'wrong password',
-        ]);
-
-        $client->submit($form);
-
-        $this->assertResponseRedirects('/login');
-    }
-}
-*/
