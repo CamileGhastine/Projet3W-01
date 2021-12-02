@@ -1,4 +1,4 @@
-<?php namespace App\tests\EntityTest;
+<?php namespace App\tests\ControllerTest;
 
 use PHPUnit\Framework\TestCase;
 use App\Controller\Admin\DashboardController;

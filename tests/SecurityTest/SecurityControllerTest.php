@@ -9,10 +9,10 @@ class SecurityControllerTest extends WebTestCase {
     /**
      * @test login success
      */
-    public function testLoginSuccess() {
+    //public function testLoginSuccess() {
 
-        $client = static::createClient();
-        $userRepository = static::$container->get(UserRepository::class);
+        //$client = static::createClient();
+        //$userRepository = static::$container->get(UserRepository::class);
         //$testUser = $userRepository->findOneByEmail('admin@3wa.fr');
         //$client->loginUser($testUser);
 
@@ -29,6 +29,6 @@ class SecurityControllerTest extends WebTestCase {
         $this->client->submit($form);
         $this->assertResponseRedirects('/');
         */
-    }
+    //}
 
 }
