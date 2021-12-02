@@ -19,7 +19,11 @@
 			</div>
 			<div class="row">
 				<div class="col-4">{{ lesson.createdAt | date('d/m/Y') }}</div>
-				<div class="col-4 text-center"><strong> {{ lesson.user.firstname }} {{ lesson.user.lastname }}</strong></div>
+				<div class="col-4 text-center">
+					<strong>
+						{{ lesson.user.firstname }}
+						{{ lesson.user.lastname }}</strong>
+				</div>
 				<div class="col-4 text-end">
 					{% if lesson.averageNote %}
 						{% for i in 1 .. (lesson.averageNote | round) %}
@@ -35,6 +39,11 @@
 			{{ lesson.content }}
 			{% endapply %}
 		</div>
+		<div class="text-center mb-5">
+			<button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exercice">
+				Exercice
+			</button>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-6">
@@ -46,9 +55,30 @@
 			<a href="{{ path('note_lesson', {'id': lesson.id, 'note': 5}) }}" class="">&#x2605</a>
 		</div>
 		<div class="col-6 text-end">
-			<button class="btn btn-primary" type="button">
+			<button class="btn btn-primary btn-sm" type="button">
 				paratgez ce cours &#9758;
 			</button>
 		</div>
 	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exercice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Exercice</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam adipisci exercitationem repellat, omnis voluptatibus iure. Similique cum quisquam placeat, ex, totam numquam est excepturi cupiditate maxime porro in soluta necessitatibus nisi neque. Ipsum beatae nulla tempora fugit. Dolore illum amet, unde quibusdam sint quidem earum, magni id beatae saepe quos perferendis ratione vero velit quas excepturi totam, mollitia deserunt doloribus omnis similique accusantium esse labore. Aspernatur, ratione, ipsa laborum beatae exercitationem totam harum corporis cum facilis cupiditate repellendus atque rem voluptate laboriosam sint ut, dolor veniam natus? Tempora impedit, cum ea veniam doloribus tenetur atque, modi totam odit, minima porro?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermé</button>
+					<button type="button" class="btn btn-primary">Corrigé</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 {% endblock %}
