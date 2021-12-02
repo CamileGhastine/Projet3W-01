@@ -47,11 +47,5 @@ class CalculateAverageNotationTest extends TestCase {
         $lesson->setAverageNote(5.0);
 
         $this->calcAvrg->calcul($lesson, $note);
-   
-        // TODO
-        //$mock = $this->getMockBuilder(CalculateAverageNotation::class)->disableOriginalConstructor()->setMethods(['calcul'])->getMock();
-        //$mock->calcul($lesson, $note);
-        //$this->calcAvrg->expects($this->once())->method('calcul');
-             
     }
 }
