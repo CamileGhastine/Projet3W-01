@@ -8,18 +8,18 @@ header {
     min-height: 40vh;
 }
 
-#name {
+.name {
     font-size: 2em;
     font-weight: bold;
     color: #353535;
 }
 
-#techno {
+.techno {
     font-size: 2.5em;
     color: #353535;
 }
 
-#citation {
+.citation {
     font-size: 3em;
     color: #353535;
 }
