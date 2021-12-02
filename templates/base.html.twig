@@ -21,6 +21,7 @@
 	<body>
 	{% set categories = categoriesForMenu.send() %}
 		{# {% if app.request.get('_route') != 'app_login' %} #}
+			{% include 'shared/_header.html.twig' %}
 			{% include 'shared/_menu.html.twig' %}
 		{# {% endif %} #}
 		<div class="container my-5"> {% block body %}{% endblock %}

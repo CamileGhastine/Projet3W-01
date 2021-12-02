@@ -1,38 +1,47 @@
 <div class="row">
-		{% for lesson in lessons %}
-			<div class="col-4">
-				<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
-				<div class="card mb-3">
-					<h3 class="card-header">{{ lesson.title }}</h3>
-					<div class="card-body">
-						<p class="card-text">{{ lesson.summary }}</p>
-					</div>
-					<div class="card-body text-end">
-						<a href="{{ path('show_lesson',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
-					</div>
-					<div class="card-body text-end">
-						{{ lesson.user.email }}
-					</div>
-					<div class="card-footer text-muted">
-						<div class="row" style="height: 25px">
-							<div class="col-6">
-								{% if lesson.status == 1 %}
-									{% if app.user is null %}
-										&#128274;
-									{% endif %}
+	{% for lesson in lessons %}
+		<div class="col-4">
+			<div class="text-center">{{ lesson.createdAt | date('d/m/Y') }}</div>
+			<div class="card mb-3">
+				<h3 class="card-header">{{ lesson.title }}</h3>
+				<div class="card-body">
+					<p class="card-text">{{ lesson.summary }}</p>
+				</div>
+				<div class="card-body text-end">
+					<a href="{{ path('show_lesson',{'id': lesson.id }) }}" class="card-link">Lire le cours</a>
+				</div>
+				<div class="card-body text-end">
+					<strong>{{ lesson.user.firstname }}
+						{{ lesson.user.lastname }}</strong>
+				</div>
+				<div class="card-footer text-muted">
+					<div class="row" style="height: 25px">
+						<div class="col-4">
+							{% if lesson.status == 1 %}
+								{% if app.user is null %}
+									&#128274;
 								{% endif %}
-							</div>
-							<div class="col-6 text-end">
-								{% if lesson.averageNote %}
-									{% for i in 1 .. (lesson.averageNote | round) %}
-										&#9733;
-									{% endfor %}
-								{% endif %}
-							</div>
+							{% endif %}
+						</div>
+						<div class="col-4 text-center">
+							<span class="badge bg-primary">{{ lesson.category.title }}</span>
+						</div>
+						<div class="col-4 text-end">
+							{% if lesson.averageNote %}
+								{% for i in 1 .. (lesson.averageNote | round) %}
+									&#9733;
+								{% endfor %}
+							{% endif %}
 						</div>
 					</div>
 				</div>
+				<div class="card-footer text-center text-muted">
+					{% for tag in lesson.tags %}
+						<span class="badge rounded-pill bg-secondary">{{ tag.title }}</span>
+					{% endfor %}
+				</div>
 			</div>
-		{% endfor %}
-	</div>
-	
+
+		</div>
+	{% endfor %}
+</div>
