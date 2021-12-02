@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Lesson;
 use App\Entity\Category;
+use App\Entity\Exercise;
 use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -33,8 +34,9 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoRoute('Acceuil', 'fas fa-home', 'home');
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-cogs');
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Leçons', 'fas fa-newspaper', Lesson::class);
+        yield MenuItem::linkToCrud('Excercices', 'fas fa-dumbbell', Exercise::class);
         yield MenuItem::linkToCrud('Categories', 'far fa-file-alt', Category::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-tag', Tag::class);
     }
