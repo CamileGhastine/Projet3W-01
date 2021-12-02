@@ -32,7 +32,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
 
             $lesson->setTitle($faker->sentence())
             ->setCreatedAt($faker->dateTime())
-            ->setContent($faker->text())
+            ->setSummary($faker->text(500))
+            ->setContent($faker->paragraph(100))
             ->setStatus(rand(0,3))
             ->setCategory($category)
             ->setUser($user);
