@@ -24,5 +24,4 @@ class ExerciseFixtures extends Fixture
             
         $manager->flush();
     }
-    }
 }
