@@ -1,6 +1,6 @@
 # PROJET3WA
 
-Develop a web application for edit Pyhton and Data-anlyst Lessons.
+Develop a web application for edit Pyhton and Data-anlyst Lessons in markdown.
 
 Devlop by :
 
