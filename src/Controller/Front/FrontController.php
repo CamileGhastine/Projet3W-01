@@ -70,9 +70,13 @@ class FrontController extends AbstractController
         ]);
     }
 
-    #[Route('/lesson/notation/{id<[0-9]+>}/{note<[1-5]>}', name: 'note_lesson')]
+    #[Route('/lesson/{id<[0-9]+>}/notation/{note<[1-5]>}', name: 'note_lesson')]
     public function note(int $id, Lesson $lesson, int $note, CalculateAverageNotation $calculateAverageNotation)
     {
+        if(!$this->getUser()) {
+            $this->redirectToRoute('show_lesson', ['id' => $lesson->getId()]);
+        }
+
         $calculateAverageNotation->calcul($lesson, $note);
 
         return $this->redirectToRoute('show_lesson', [
